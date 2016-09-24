@@ -55,7 +55,7 @@ module.exports = {
         } else {
           console.log("FLOP");
           if(communityRanks.indexOf(hand[0]) > -1 || communityRanks.indexOf(hand[1]) > -1){
-            return 6000;
+            return check_amount * 4;
           }
           else {
             return check_amount;
