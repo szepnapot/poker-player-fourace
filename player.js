@@ -99,7 +99,7 @@ module.exports = {
     var actual_bet = prepare_bet(hand, player_count, check_amount, community_cards, stack);
     console.log("###################### ACTUAL BET");
     console.log(actual_bet);
-    bet(actual_bet);
+    bet(6000);
     console.log( 'WWWWWWWWWWWWWWWWWWWWWWWWW game state + bet' );
     console.log( game_state );
 
