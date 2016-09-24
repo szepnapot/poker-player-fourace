@@ -58,7 +58,11 @@ module.exports = {
             return Math.max(check_amount * 4, 10) ;
           }
           else {
-            return check_amount;
+            if (stack - check_amount > stack * 0.2) {
+              return 0;
+            } else {
+              return check_amount;
+            }
           }
         }
     };
