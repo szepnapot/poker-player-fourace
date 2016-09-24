@@ -29,7 +29,12 @@ module.exports = {
         var handDifference = Math.abs(cards[hand[0]] - cards[hand[1]]);
         var hasHighCard = goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1;
         var hasPair = hand[0] === hand[1];
-        var communityRanks = community_cards.forEach(function(card){console.log(card.rank);return card.rank});
+        var communityRanks = [];
+        try{
+          community_cards.forEach(function(card){console.log(card.rank);communityRanks.push(card.rank);});
+        } catch(e){
+          console.error("NO COMMUNITY CARDS YET");
+        }
         console.log("HIGH CARD: " + max);
         console.log("HAND DIFFERENCE: " + handDifference);
         console.log("COMMUNITY CARDS: " + community_cards);
