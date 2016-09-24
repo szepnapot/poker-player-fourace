@@ -30,7 +30,7 @@ module.exports = {
             //1.1.1 satrting with a pair
             if(hand[0] == hand[1]) {
               return 6000;
-              
+
             //1.1.2 atrating with no pair
             } else {
               return check_amount;
