@@ -36,6 +36,7 @@ module.exports = {
 
               var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
               // 1.1.2.1 shit cards
+              console.log("High card:" + max);
               if (max < 14) {
                 console.log("---------------- FOLDING, NO HIGH CARDS");
                 return 0;
