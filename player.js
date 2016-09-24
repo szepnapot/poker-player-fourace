@@ -10,7 +10,7 @@ module.exports = {
     var goodStartingHand = ['10', 'J', 'K', 'Q', 'A'];
     var in_action = game_state[in_action];
     var hand = [game_state.players[in_action]['hole_cards'][0]['rank'], game_state.players[in_action]['hole_cards'][1]['rank']];
-    console.log(hand);
+    console.log(game_state.players[in_action]['hole_cards'][0]['rank']);
     console.log(in_action);
     bet(1000);
     console.log( 'game state + bet' );
