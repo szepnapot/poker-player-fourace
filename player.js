@@ -69,6 +69,9 @@ module.exports = {
               if (check_amount > stack * 0.2) {
                 return 0;
               } else {
+                if(communityRanks.length === 5){
+                  return 0;
+                }
                 return check_amount;
               }
             }
