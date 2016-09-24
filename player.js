@@ -75,7 +75,7 @@ module.exports = {
     console.log("========================== NUMBER OF ACTIVE PLAYERS");
     console.log(player_count);
 
-    var actual_bet = prepare_bet(hand, player_count, check_amount);
+    var actual_bet = prepare_bet(hand, player_count, check_amount, community_cards);
     console.log("###################### ACTUAL BET");
     console.log(actual_bet);
     bet(actual_bet);
