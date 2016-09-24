@@ -61,7 +61,7 @@ module.exports = {
     for(var i =0; i < game_state.players.length; i++) {
       if (game_state.players[i].status == "active") {
         console.log(game_state.players[i].name);
-        console.log(game_state.players[i].hole_cards[0].rank + " " + game_state.players[i].hole_cards[1].rank);
+        // console.log(game_state.players[i].hole_cards[0].rank + " " + game_state.players[i].hole_cards[1].rank);
         console.log(game_state.players[i].stack);
       }
     }
