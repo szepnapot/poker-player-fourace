@@ -61,9 +61,9 @@ module.exports = {
   showdown: function(game_state) {
     console.log("========================== SHOWDOWN");
     console.log(game_state);
-    console.log("========================== OWN HAND");
-    console.log(game_state.players[0].hole_cards[0].rank);
-    console.log(game_state.players[0].hole_cards[1].rank);
+    // console.log("========================== OWN HAND");
+    // console.log(game_state.players[0].hole_cards[0].rank);
+    // console.log(game_state.players[0].hole_cards[1].rank);
 
 
     console.log("========================== OPPONENT CARDS IN LAST TURN");
