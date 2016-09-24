@@ -6,7 +6,11 @@ module.exports = {
   bet_request: function(game_state, bet) {
 
     console.log("------------------------------------------ BET REQUEST START LOG");
-
+    var community_cards = [];
+    if (game_state.community_cards !== 'undefined') {
+      community_cards = game_state.community_cards;
+    }
+    console.log("COMMUNITY:: " + community_cards);
     var number_of_active_players = function(players) {
       var num_of_players = 0;
       for (var i = 0; i < players.length; i++) {
@@ -17,41 +21,40 @@ module.exports = {
       return num_of_players;
     };
 
-    var prepare_bet = function(hand, player_num, check_amount) {
+    var prepare_bet = function(hand, player_num, check_amount, community_cards) {
         var cards = { "2" : 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8" : 8, "9" : 9, "10" : 10, "J" : 11, "Q": 12, "K": 13, "A": 14};
         var goodStartingHand = ["10", "A", "J", "Q", "K"];
-
-        // 1. More than 3 players
-        if (player_num > 3) {
-
-          //1.1 starting with good cards
-          if (goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1) {
-
-            //1.1.1 satrting with a pair
-            if(hand[0] == hand[1]) {
-              return 6000;
-
-            //1.1.2 atrating with no pair
-            } else {
-
-              var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
-              // 1.1.2.1 shit cards
-              console.log("High card:" + max);
-              if (parseInt(max) < 14) {
-                console.log("---------------- FOLDING, NO HIGH CARDS");
-                return 0;
-              }
+        var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
+        console.log("PREPARE BET FUNCTION =========");
+        var handDifference = Math.abs(cards[hand[0]] - cards[hand[1]]);
+        var hasHighCard = goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1;
+        var hasPair = hand[0] === hand[1];
+        var communityRanks = community_cards.forEach(function(card){console.log(card.rank);return card.rank});
+        console.log("HIGH CARD: " + max);
+        console.log("HAND DIFFERENCE: " + handDifference);
+        console.log("COMMUNITY CARDS: " + community_cards);
+        console.log("COMMUNITY RANKS: " + communityRanks);
+        // 0. TURN
+        if(community_cards.length === 0 || community_cards.length === 'undefined'){
+          console.log("TURN 0");
+          if (handDifference > 4 && !hasHighCard) {
+            return 0;
+          } else {
+            if(hasPair){
+              return check_amount * 2;
+            }
+            else {
               return check_amount;
             }
-
-          //1.2 starting with shit cards
-          } else {
+          }
+        } else {
+          console.log("FLOP");
+          if(communityRanks.indexOf(hand[0]) > -1 || communityRanks.indexOf(hand[1]) > -1){
+            return 6000;
+          }
+          else {
             return check_amount;
           }
-
-        //2. Less than 3 players
-        } else {
-          return game_state.current_buy_in * 2;
         }
     };
 
