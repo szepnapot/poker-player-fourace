@@ -21,12 +21,27 @@ module.exports = {
         var cards = { "2" : 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8" : 8, "9" : 9, "10" : 10, "J" : 11, "Q": 12, "K": 13, "A": 14};
         var goodStartingHand = ["10", "A", "J", "Q", "K"];
 
+        // 1. More than 3 players
         if (player_num > 3) {
+
+          //1.1 starting with good cards
           if (goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1) {
+
+            //1.1.1 satrting with a pair
+            if(hand[0] == hand[1]) {
               return 6000;
+              
+            //1.1.2 atrating with no pair
+            } else {
+              return check_amount;
+            }
+
+          //1.2 starting with shit cards
           } else {
-            return 0;
+            return check_amount;
           }
+
+        //2. Less than 3 players
         } else {
           return check_amount;
         }
