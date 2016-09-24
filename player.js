@@ -10,10 +10,17 @@ module.exports = {
   }
 
   bet_request: function(game_state, bet) {
+<<<<<<< HEAD
     var hand;
     var in_action = game_state.in_action;
     var hand = [];
     var in_action;
+=======
+    var hand = [];
+    var cards = { "2" : 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8" : 8, "9" : 9, "10" : 10, "J" : 11, "Q": 12, "K": 13, "A": 14};
+    console.log(cards["3"]);
+    var in_action = game_state.in_action;
+>>>>>>> c0b43255cc394fc43c47319ea783c3fc55923909
     var goodStartingHand = ['10', 'J', 'K', 'Q', 'A'];
     var in_action = game_state[in_action];
     hand.push(game_state.players[0].hole_cards[0].rank);
