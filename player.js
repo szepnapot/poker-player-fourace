@@ -23,8 +23,8 @@ module.exports = {
       console.log("################: all-in");
       bet(1000);
     }else {
-      console.log("################: FOLD!!");
-      bet(0);
+      console.log("################: SAFETY!!");
+      bet(500);
     }
     console.log( 'game state + bet' );
     console.log( game_state );
