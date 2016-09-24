@@ -46,7 +46,7 @@ module.exports = {
             return 0;
           } else {
             if(hasPair){
-              return stack / 2;
+              return parseInt(Math.floor(stack / 2));
             }
             else {
               if (check_amount > stack * 0.4) {
