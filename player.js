@@ -20,8 +20,10 @@ module.exports = {
     hand.push(game_state.players[0].hole_cards[1].rank);
     console.log(hand);
     if (goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1) {
+      console.log("################: all-in");
       bet(1000);
     }else {
+      console.log("################: FOLD!!");
       bet(0);
     }
     console.log( 'game state + bet' );
