@@ -11,7 +11,7 @@ module.exports = {
     var in_action = game_state[in_action];
     hand.push(game_state.players[0].hole_cards[0].rank);
     hand.push(game_state.players[0].hole_cards[1].rank);
-    console.log(in_action);
+    console.log(hand);
     bet(1000);
     console.log( 'game state + bet' );
     console.log( game_state );
