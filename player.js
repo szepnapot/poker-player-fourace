@@ -2,8 +2,9 @@
 module.exports = {
 
   VERSION: "Default JavaScript folding player",
-
-  // var goodStartingHand = ['10', 'J', 'K', 'Q', 'A'];
+  var hand;
+  var in_action;
+  var goodStartingHand = ['10', 'J', 'K', 'Q', 'A'];
 
   bet_request: function(game_state, bet) {
     // var in_action = game_state[in_action];
