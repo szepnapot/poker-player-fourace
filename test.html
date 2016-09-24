@@ -63,6 +63,68 @@
          in_action: 0,
          minimum_raise: 20,
          bet_index: 7 };
+      var game2 = { tournament_id: '57c5ced0a362350003000001',
+         game_id: '57e68a4e0b4f65000300008f',
+         round: 1,
+         players: 
+          [ { name: 'fourAce',
+              stack: 1319,
+              status: 'active',
+              bet: 299,
+              hole_cards: [{ rank: "2", suit: "spades"}, { rank: "7", suit: "spades"}],
+              time_used: 140899,
+               version: 'Default JavaScript folding player',
+              id: 0 },
+            { name: 'pokerninja',
+              stack: 998,
+              status: 'folded',
+              bet: 0,
+              time_used: 30819,
+              version: '18',
+              id: 1 },
+            { name: 'Undefin3d',
+              stack: 994,
+              status: 'folded',
+              bet: 2,
+              time_used: 21626,
+              version: '0.3',
+              id: 2 },
+            { name: 'piton',
+              stack: 996,
+              status: 'folded',
+              bet: 4,
+              time_used: 57340,
+              version: 'EGESZ JO',
+              id: 3 },
+            { name: 'Nyakall',
+              stack: 48,
+              status: 'active',
+              bet: 346,
+              time_used: 102474,
+               version: 'Brave gopher - [deep low yolo | kicsinalt edition]',
+              id: 4 },
+            { name: 'noTestNofear',
+              stack: 648,
+              status: 'active',
+              bet: 346,
+              time_used: 88364,
+              version: '7',
+              id: 5 } ],
+         small_blind: 2,
+         big_blind: 4,
+         orbits: 0,
+         dealer: 1,
+         community_cards: 
+          [ { rank: '6', suit: 'spades' },
+            { rank: '4', suit: 'diamonds' },
+            { rank: '9', suit: 'clubs' },
+            { rank: 'K', suit: 'spades' },
+            { rank: '9', suit: 'diamonds' } ],
+         current_buy_in: 346,
+         pot: 997,
+         in_action: 0,
+         minimum_raise: 47,
+         bet_index: 4 };
       var module = {};
       var script = document.createElement('script');
       script.onload = function() {
@@ -70,7 +132,10 @@
          var bet_func = function ( myBet ) {
             console.log( "---> my bet is " + myBet );
          }
+         console.log( "---> GAME 1" );
          module.exports.bet_request( game1, bet_func );
+         console.log( "---> GAME 2" );
+         module.exports.bet_request( game2, bet_func );
       };
       script.src = "player.js";
       document.getElementsByTagName('head')[0].appendChild(script);
