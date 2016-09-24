@@ -46,7 +46,7 @@ module.exports = {
             return 0;
           } else {
             if(hasPair){
-              return stock / 2;
+              return stack / 2;
             }
             else {
               return check_amount;
