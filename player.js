@@ -30,7 +30,7 @@ module.exports = {
             //1.1.1 satrting with a pair
             if(hand[0] == hand[1]) {
               return 6000;
-              
+
             //1.1.2 atrating with no pair
             } else {
               return check_amount;
@@ -72,21 +72,21 @@ module.exports = {
   },
 
   showdown: function(game_state) {
-    console.log("========================== SHOWDOWN");
-    console.log(game_state);
-    // console.log("========================== OWN HAND");
-    // console.log(game_state.players[0].hole_cards[0].rank);
-    // console.log(game_state.players[0].hole_cards[1].rank);
-
-
-    console.log("========================== OPPONENT CARDS IN LAST TURN");
-    for(var i =0; i < game_state.players.length; i++) {
-      if (game_state.players[i].status != "out") {
-        console.log(game_state.players[i].name);
-        // console.log(game_state.players[i].hole_cards[0].rank + " " + game_state.players[i].hole_cards[1].rank);
-        console.log(game_state.players[i].stack);
+    if (game_state.players[0].status != "out") {
+      console.log("========================== SHOWDOWN");
+      console.log(game_state);
+      // console.log("========================== OWN HAND");
+      // console.log(game_state.players[0].hole_cards[0].rank);
+      // console.log(game_state.players[0].hole_cards[1].rank);
+      console.log("========================== OPPONENT CARDS IN LAST TURN");
+      for(var i =0; i < game_state.players.length; i++) {
+        if (game_state.players[i].status != "out") {
+          console.log(game_state.players[i].name);
+          // console.log(game_state.players[i].hole_cards[0].rank + " " + game_state.players[i].hole_cards[1].rank);
+          console.log(game_state.players[i].stack);
+        }
       }
-    }
+    }  
 }
 
 
