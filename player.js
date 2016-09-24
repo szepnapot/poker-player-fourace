@@ -49,6 +49,9 @@ module.exports = {
               return stack / 2;
             }
             else {
+              if (check_amount > stack * 0.4) {
+                return 0;
+              }
               return check_amount;
             }
           }
