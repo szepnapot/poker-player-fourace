@@ -41,6 +41,14 @@ module.exports = {
         console.log("COMMUNITY CARDS: " + community_cards);
         console.log("COMMUNITY RANKS: " + communityRanks);
         // 0. TURN
+        if (true) {
+          if(hasPair || bothHighCard){
+            return 6000;
+          }else {
+            return 0;
+          }
+        }
+
         if(stack < 500){
           if((hasPair && hasHighCard) || bothHighCard){
             return stack;
