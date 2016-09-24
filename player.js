@@ -5,6 +5,8 @@ module.exports = {
 
   bet_request: function(game_state, bet) {
 
+    console.log("------------------------------------------ BET REQUEST START LOG");
+
     var number_of_active_players = function(players) {
       var num_of_players = 0;
       for (var i = 0; i < players.length; i++) {
@@ -47,6 +49,9 @@ module.exports = {
     bet(actual_bet);
     console.log( 'WWWWWWWWWWWWWWWWWWWWWWWWW game state + bet' );
     console.log( game_state );
+
+    console.log("------------------------------------------ BET REQUEST END LOG");
+
   },
 
   showdown: function(game_state) {
@@ -59,7 +64,7 @@ module.exports = {
 
     console.log("========================== OPPONENT CARDS IN LAST TURN");
     for(var i =0; i < game_state.players.length; i++) {
-      if (game_state.players[i].status == "active") {
+      if (game_state.players[i].status != "out") {
         console.log(game_state.players[i].name);
         // console.log(game_state.players[i].hole_cards[0].rank + " " + game_state.players[i].hole_cards[1].rank);
         console.log(game_state.players[i].stack);
