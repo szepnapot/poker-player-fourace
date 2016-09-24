@@ -51,6 +51,8 @@ module.exports = {
             else {
               if (check_amount > stack * 0.4) {
                 return 0;
+              } else if (handDifference < 2) {
+                return check_amount * 2;
               }
               return check_amount;
             }
