@@ -21,7 +21,7 @@ module.exports = {
       return num_of_players;
     };
 
-    var prepare_bet = function(hand, player_num, check_amount, community_cards) {
+    var prepare_bet = function(hand, player_num, check_amount, community_cards, stack) {
         var cards = { "2" : 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8" : 8, "9" : 9, "10" : 10, "J" : 11, "Q": 12, "K": 13, "A": 14};
         var goodStartingHand = ["10", "A", "J", "Q", "K"];
         var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
@@ -46,7 +46,7 @@ module.exports = {
             return 0;
           } else {
             if(hasPair){
-              return check_amount * 2;
+              return stock / 2;
             }
             else {
               return check_amount;
@@ -64,7 +64,7 @@ module.exports = {
     };
 
     var check_amount = game_state.current_buy_in - game_state.players[0].bet;
-
+    var stack = game_state.players[0].stack;
     var hand = [];
     var player = game_state.players[0];
     try{
@@ -80,7 +80,7 @@ module.exports = {
     console.log("========================== NUMBER OF ACTIVE PLAYERS");
     console.log(player_count);
 
-    var actual_bet = prepare_bet(hand, player_count, check_amount, community_cards);
+    var actual_bet = prepare_bet(hand, player_count, check_amount, community_cards, stack);
     console.log("###################### ACTUAL BET");
     console.log(actual_bet);
     bet(actual_bet);
