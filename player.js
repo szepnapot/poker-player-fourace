@@ -37,7 +37,7 @@ module.exports = {
               var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
               // 1.1.2.1 shit cards
               console.log("High card:" + max);
-              if (max < 14) {
+              if (parseInt(max) < 14) {
                 console.log("---------------- FOLDING, NO HIGH CARDS");
                 return 0;
               }
@@ -59,8 +59,12 @@ module.exports = {
 
     var hand = [];
     var player = game_state.players[0];
-    hand.push(player.hole_cards[0].rank);
-    hand.push(player.hole_cards[1].rank);
+    try{
+      hand.push(player.hole_cards[0].rank);
+      hand.push(player.hole_cards[1].rank);
+    } catch(ex){
+      console.log(ex);
+    }
     console.log("========================== OWN HAND");
     console.log(hand);
 
