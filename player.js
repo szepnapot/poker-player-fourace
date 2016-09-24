@@ -43,7 +43,7 @@ module.exports = {
 
         //2. Less than 3 players
         } else {
-          return check_amount;
+          return game_state.current_buy_in * 2;
         }
     };
 
@@ -86,7 +86,7 @@ module.exports = {
           console.log(game_state.players[i].stack);
         }
       }
-    }  
+    }
 }
 
 
