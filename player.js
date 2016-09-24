@@ -33,6 +33,13 @@ module.exports = {
 
             //1.1.2 atrating with no pair
             } else {
+
+              var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
+              // 1.1.2.1 shit cards
+              if (max < 14) {
+                console.log("---------------- FOLDING, NO HIGH CARDS");
+                return 0;
+              }
               return check_amount;
             }
 
