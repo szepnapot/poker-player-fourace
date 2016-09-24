@@ -9,7 +9,7 @@ module.exports = {
     var in_action;
     var goodStartingHand = ['10', 'J', 'K', 'Q', 'A'];
     var in_action = game_state[in_action];
-    console.log(game_state.players[0]);
+    console.log(game_state.players[0].hole_cards[0].rank);
     console.log(in_action);
     bet(1000);
     console.log( 'game state + bet' );
