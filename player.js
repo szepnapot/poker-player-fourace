@@ -36,9 +36,11 @@ module.exports = {
 
     console.log("========================== OPPONENT CARDS IN LAST TURN");
     for(var i =0; i < game_state.players.length; i++) {
-      console.log(game_state.players[i].name);
-      console.log(game_state.players[i].hole_cards[0] + " " + game_state.players[i].hole_cards[1]);
-      console.log(game_state.players[i].stack);
+      if (game_state.players[i].status == "active") {
+        console.log(game_state.players[i].name);
+        console.log(game_state.players[i].hole_cards[0] + " " + game_state.players[i].hole_cards[1]);
+        console.log(game_state.players[i].stack);
+      }
     }
 
 
