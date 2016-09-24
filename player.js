@@ -30,17 +30,12 @@ module.exports = {
     }
 },
 
-  get_hand: function(player) {
-    var hand = [];
-    hand.push(player.hole_cards[0].rank);
-    hand.push(player.hole_cards[1].rank);
-    return hand;
-  },
-
 
   bet_request: function(game_state, bet) {
     var check_amount = game_state.current_buy_in - game_state.players[0].bet;
-    var hand = this.get_hand(game_state.players[0]);
+    var hand = [];
+    hand.push(player.hole_cards[0].rank);
+    hand.push(player.hole_cards[1].rank);
     console.log("========================== OWN HAND");
     console.log(hand);
 
