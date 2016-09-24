@@ -23,11 +23,12 @@ module.exports = {
 
     var prepare_bet = function(hand, player_num, check_amount, community_cards, stack) {
         var cards = { "2" : 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8" : 8, "9" : 9, "10" : 10, "J" : 11, "Q": 12, "K": 13, "A": 14};
-        var goodStartingHand = ["10", "A", "J", "Q", "K"];
+        var goodStartingHand = ["A", "J", "Q", "K"];
         var max = cards[hand[0]] > cards[hand[1]] ? cards[hand[0]] : cards[hand[1]];
         console.log("PREPARE BET FUNCTION =========");
         var handDifference = Math.abs(cards[hand[0]] - cards[hand[1]]);
         var hasHighCard = goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1;
+        var bothHighCard = goodStartingHand.indexOf(hand[0]) > -1 && goodStartingHand.indexOf(hand[1]) > -1;
         var hasPair = hand[0] === hand[1];
         var communityRanks = [];
         try{
@@ -41,7 +42,11 @@ module.exports = {
         console.log("COMMUNITY RANKS: " + communityRanks);
         // 0. TURN
         if(stack < 500){
-          return 0;
+          if((hasPair && hasHighCard) || bothHighCard){
+            return stack;
+          }else {
+            return 0;
+          }
         } else {
           if(community_cards.length === 0 || community_cards.length === 'undefined'){
             console.log("TURN 0");
@@ -99,7 +104,7 @@ module.exports = {
     var actual_bet = prepare_bet(hand, player_count, check_amount, community_cards, stack);
     console.log("###################### ACTUAL BET");
     console.log(actual_bet);
-    bet(6000);
+    bet(actual_bet);
     console.log( 'WWWWWWWWWWWWWWWWWWWWWWWWW game state + bet' );
     console.log( game_state );
 
