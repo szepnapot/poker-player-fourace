@@ -40,33 +40,37 @@ module.exports = {
         console.log("COMMUNITY CARDS: " + community_cards);
         console.log("COMMUNITY RANKS: " + communityRanks);
         // 0. TURN
-        if(community_cards.length === 0 || community_cards.length === 'undefined'){
-          console.log("TURN 0");
-          if (handDifference > 4 && !hasHighCard) {
-            return 0;
-          } else {
-            if(hasPair){
-              return parseInt(Math.floor(stack / 2));
-            }
-            else {
-              if (check_amount > stack * 0.4) {
-                return 0;
-              } else if (handDifference < 2) {
-                return check_amount * 2;
-              }
-              return check_amount;
-            }
-          }
+        if(stack < 500){
+          return 0;
         } else {
-          console.log("FLOP");
-          if(communityRanks.indexOf(hand[0]) > -1 || communityRanks.indexOf(hand[1]) > -1){
-            return Math.max(check_amount * 4, 10) ;
-          }
-          else {
-            if (check_amount > stack * 0.2) {
+          if(community_cards.length === 0 || community_cards.length === 'undefined'){
+            console.log("TURN 0");
+            if (handDifference >= 4 && !hasHighCard) {
               return 0;
             } else {
-              return check_amount;
+              if(hasPair){
+                return parseInt(Math.floor(stack / 2));
+              }
+              else {
+                if (check_amount > stack * 0.4) {
+                  return 0;
+                } else if (handDifference < 2) {
+                  return check_amount * 2;
+                }
+                return check_amount;
+              }
+            }
+          } else {
+            console.log("FLOP");
+            if(communityRanks.indexOf(hand[0]) > -1 || communityRanks.indexOf(hand[1]) > -1){
+              return Math.max(check_amount * 4, 10) ;
+            }
+            else {
+              if (check_amount > stack * 0.2) {
+                return 0;
+              } else {
+                return check_amount;
+              }
             }
           }
         }
