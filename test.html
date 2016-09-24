@@ -1,0 +1,78 @@
+<head>
+</head>
+<body>
+   <script>
+      var game1 = { tournament_id: '57c5ced0a362350003000001',
+         game_id: '57e67430a594bc00030000f9',
+         round: 32,
+         players: 
+          [ { name: 'fourAce',
+              stack: 3441,
+              status: 'active',
+              bet: 60,
+              hole_cards: [Object],
+              time_used: 5584878,
+               version: 'Default JavaScript folding player',
+              id: 0 },
+            { name: 'pokerninja',
+              stack: 0,
+              status: 'out',
+              bet: 0,
+              time_used: 237422,
+              version: '14',
+              id: 1 },
+            { name: 'Undefin3d',
+              stack: 0,
+              status: 'out',
+              bet: 0,
+              time_used: 113013,
+              version: '0.3',
+              id: 2 },
+            { name: 'piton',
+              stack: 937,
+              status: 'folded',
+              bet: 0,
+              time_used: 1568005,
+               version: 'Default Python folding player',
+              id: 3 },
+            { name: 'Nyakall',
+              stack: 575,
+              status: 'active',
+              bet: 80,
+              time_used: 4607653,
+               version: 'Brave gopher - [nyakall a fejed]',
+              id: 4 },
+            { name: 'noTestNofear',
+              stack: 897,
+              status: 'folded',
+              bet: 10,
+              time_used: 2150586,
+              version: '4',
+              id: 5 } ],
+         small_blind: 10,
+         big_blind: 20,
+         orbits: 5,
+         dealer: 4,
+         community_cards: 
+          [ { rank: '6', suit: 'spades' },
+            { rank: '2', suit: 'spades' },
+            { rank: '6', suit: 'clubs' },
+            { rank: 'Q', suit: 'diamonds' } ],
+         current_buy_in: 80,
+         pot: 150,
+         in_action: 0,
+         minimum_raise: 20,
+         bet_index: 7 };
+      var module = {};
+      var script = document.createElement('script');
+      script.onload = function() {
+         console.log( module.exports );
+         var bet_func = function ( myBet ) {
+            console.log( "---> my bet is " + myBet );
+         }
+         module.exports.bet_request( game1, bet_func );
+      };
+      script.src = "player.js";
+      document.getElementsByTagName('head')[0].appendChild(script);
+   </script>
+</body>
