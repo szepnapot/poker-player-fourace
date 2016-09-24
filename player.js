@@ -5,7 +5,8 @@ module.exports = {
 
   bet_request: function(game_state, bet) {
     var in_action = game_state.in_action;
-    var hand = game_state['players'][0][];
+    var hand = game_state.players[in_action]['hole_cards'];
+    console.log(hand);
     bet(900);
   },
 
