@@ -21,7 +21,7 @@ module.exports = {
     console.log(hand);
     if (goodStartingHand.indexOf(hand[0]) > -1 || goodStartingHand.indexOf(hand[1]) > -1) {
       console.log("################: all-in");
-      bet(1000);
+      bet(6000);
     }else {
       console.log("################: SAFETY!!");
       bet(500);
