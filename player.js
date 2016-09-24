@@ -34,6 +34,7 @@ module.exports = {
 
     var check_amount = game_state.current_buy_in - game_state.players[0].bet;
     var hand = [];
+    var player = game_state.players[0];
     hand.push(player.hole_cards[0].rank);
     hand.push(player.hole_cards[1].rank);
     console.log("========================== OWN HAND");
