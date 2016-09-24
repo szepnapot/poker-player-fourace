@@ -28,9 +28,7 @@ module.exports = {
     } else {
       return check_amount;
     }
-
-
-  },
+},
 
   get_hand: function(player) {
     var hand = [];
@@ -42,7 +40,7 @@ module.exports = {
 
   bet_request: function(game_state, bet) {
     var check_amount = game_state.current_buy_in - game_state.players[0].bet;
-    var hand = get_hand(game_state.players[0]);
+    var hand = this.get_hand(game_state.players[0]);
     console.log("========================== OWN HAND");
     console.log(hand);
 
@@ -74,10 +72,7 @@ module.exports = {
         console.log(game_state.players[i].stack);
       }
     }
-
-
-
-  }
+}
 
 
 };
