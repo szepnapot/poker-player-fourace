@@ -1,7 +1,7 @@
 
 module.exports = {
 
-  VERSION: "Default JavaScript folding player",
+  VERSION: "Default JavaScript folding player";
   var hand;
   var in_action;
   var goodStartingHand = ['10', 'J', 'K', 'Q', 'A'];
