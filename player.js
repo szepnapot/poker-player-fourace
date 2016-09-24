@@ -31,8 +31,18 @@ module.exports = {
   },
 
   showdown: function(game_state) {
-    console.log("==========================");
+    console.log("========================== SHOWDOWN");
     console.log(game_state);
+
+    console.log("========================== OPPONENT CARDS IN LAST TURN");
+    for(var i =0; i < game_state.players.length; i++) {
+      console.log(game_state.players[i].name);
+      console.log(game_state.players[i].hole_cards);
+      console.log(game_state.players[i].stack);
+    }
+
+
+
   }
 
 
